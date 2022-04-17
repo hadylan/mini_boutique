@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter de création</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container px-5 pt-3 bg-light mt-5 pb-0">
+
+    <h1 class="fs-1">Ajouter un article</h1>
+        <p>Mot de passe: <span class="text-info">password</span></p>
+
+        <h4 th:if="${statut} == 0" class="text-danger">Mot de passe invalide!</h4>
+
+        <form class="p-5" method="post"  th:action="@{/addArticle}" th:object="${creationBean}">
+            <div class="form-group">
+                <label for="inputName">Nom de l'article</label>
+                <input th:field="*{name}" type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Nom de l'article" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPrice">Prix de l'article</label>
+                <input th:field="*{price}" value="" type="text" class="form-control" id="inputPrice" aria-describedby="emailHelp" placeholder="Prix de l'article" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPhoto1">Image 1 de l'article</label>
+                <input th:field="*{photo1}" type="text" class="form-control" id="inputPhoto1" aria-describedby="emailHelp" placeholder="Lien de la première image" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPhoto2">Image 2 de l'article</label>
+                <input th:field="*{photo2}" type="text" class="form-control" id="inputPhoto2" aria-describedby="emailHelp" placeholder="Lien de la seconde image" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Mot de passe</label>
+                <input name="pass" type="password" class="form-control" id="inputPassword" aria-describedby="emailHelp" placeholder="Mot de passe" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+    <footer class="fixed-bottom p-2">
+        <btn class="btn btn-sm btn-primary"><a href="/Home" class="text-white">Retourner a l'accueil</a></btn>
+    </footer>
+</body>
+</html>
